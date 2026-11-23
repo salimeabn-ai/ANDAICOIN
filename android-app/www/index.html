@@ -7,7 +7,7 @@
   <style>
     body { font-family: system-ui, sans-serif; background: #0b1120; color: #f8fafc; margin: 0; padding: 16px; }
     h1 { font-size: 20px; margin: 0 0 12px; }
-    .tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+    .tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
     .tab-btn { padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: #e2e8f0; font-weight: 600; cursor: pointer; }
     .tab-btn.active { background: #22c55e; color: #052e16; border-color: #22c55e; }
     .card { background: #1e293b; border-radius: 12px; padding: 14px; margin-bottom: 12px; }
@@ -17,8 +17,10 @@
     input, select, button.action { width: 100%; box-sizing: border-box; padding: 10px; margin-top: 6px; border-radius: 8px; border: none; font-size: 14px; }
     input, select { background: #0f172a; color: #f8fafc; border: 1px solid #334155; }
     button.action { background: #22c55e; color: #052e16; font-weight: 700; cursor: pointer; margin-top: 12px; }
+    button.action:disabled { opacity: 0.65; cursor: wait; }
     button.stop { background: #ef4444; color: #ffffff; }
-    pre { background: #0f172a; padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 12px; margin-top: 10px; }
+    pre { background: #0f172a; padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 12px; margin-top: 10px; white-space: pre-wrap; }
+    .joke-text { font-size: 17px; line-height: 1.6; }
     .pill { display: inline-block; background: #0f172a; padding: 4px 10px; border-radius: 999px; font-size: 12px; color: #86efac; margin-bottom: 8px; }
   </style>
 </head>
@@ -29,6 +31,7 @@
     <button class="tab-btn active" data-tab="mine">Mine</button>
     <button class="tab-btn" data-tab="send">Send</button>
     <button class="tab-btn" data-tab="receive">Receive / PP</button>
+    <button class="tab-btn" data-tab="jokes">Jokes</button>
   </div>
   <div id="mine" class="panel active card">
     <strong>Block Mining Control</strong>
@@ -59,6 +62,12 @@
     <input id="recvAmount" type="number" value="25" />
     <button id="genPpBtn" class="action">Generate One-Time PP Code</button>
     <pre id="recvOutput">Static address ready. Generate PP for one-time receiving.</pre>
+  </div>
+  <div id="jokes" class="panel card">
+    <strong>Random Joke</strong>
+    <p id="jokeOutput" class="joke-text" aria-live="polite">Tap the button to fetch a safe joke.</p>
+    <button id="getJokeBtn" class="action">Get a Random Joke</button>
+    <small>Jokes provided by JokeAPI. An internet connection is required.</small>
   </div>
   <script type="module" src="./app.js"></script>
 </body>

@@ -68,3 +68,25 @@ document.getElementById("genPpBtn").addEventListener("click", async () => {
     pp: { version: "pp1", nonce, ppCode: "pp1_" + digest.slice(0, 40) }
   }, null, 2);
 });
+const getJokeBtn = document.getElementById("getJokeBtn");
+const jokeOutput = document.getElementById("jokeOutput");
+getJokeBtn.addEventListener("click", async () => {
+  getJokeBtn.disabled = true;
+  getJokeBtn.textContent = "Loading…";
+  jokeOutput.textContent = "Fetching a joke…";
+  try {
+    const response = await fetch("https://v2.jokeapi.dev/joke/Any?safe-mode");
+    if (!response.ok) throw new Error("Joke service returned HTTP " + response.status);
+    const data = await response.json();
+    if (data.error) throw new Error(data.message || "The joke service returned an error.");
+    const joke = data.type === "twopart" ? `${data.setup}\n\n${data.delivery}` : data.joke;
+    if (typeof joke !== "string" || !joke.trim()) throw new Error("The service returned an empty joke.");
+    jokeOutput.textContent = joke;
+  } catch (error) {
+    jokeOutput.textContent = "Could not load a joke. Check your internet connection and try again.";
+    console.error("Failed to fetch joke:", error);
+  } finally {
+    getJokeBtn.disabled = false;
+    getJokeBtn.textContent = "Get a Random Joke";
+  }
+});
