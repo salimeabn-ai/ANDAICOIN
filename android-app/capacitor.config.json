@@ -1,0 +1,8 @@
+{
+  "appId": "org.andaicoin.wallet",
+  "appName": "ANDAICOIN",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "anda-node",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "ANDAICOIN test node (Node.js / Termux)",
+  "dependencies": {
+    "@noble/curves": "1.4.0"
+  }
+}

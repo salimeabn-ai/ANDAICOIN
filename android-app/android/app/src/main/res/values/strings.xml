@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ANDAICOIN</string>
+    <string name="title_activity_main">ANDAICOIN</string>
+    <string name="package_name">org.andaicoin.wallet</string>
+    <string name="custom_url_scheme">org.andaicoin.wallet</string>
+</resources>

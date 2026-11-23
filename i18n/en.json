@@ -1,0 +1,7 @@
+{
+  "dir": "ltr",
+  "ERR_FUTURE_TIME": "Block timestamp is too far in the future",
+  "ERR_MTP_VIOLATION": "Block timestamp must be greater than Median Time Past (MTP)",
+  "ERR_NEGATIVE_TIMEDELTA": "Negative time delta between blocks is not allowed",
+  "ERR_INVALID_POW": "Block hash does not meet target proof-of-work"
+}
